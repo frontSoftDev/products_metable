@@ -1,0 +1,40 @@
+{
+    "name": "marinar/products_metable",
+    "description": "Products module - metable addon",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marin Ivanov",
+            "email": "marin@dev.nddesign.no"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Marinar\\ProductsMetable\\": "src/"
+        }
+    },
+
+    "require": {
+        "marinar/products": "*",
+        "marinar/metable": "*",
+        "marinar/helpers": "*"
+    },
+    "extra": {
+        "marinar": {
+            "module": false,
+            "plugin": false,
+            "addon_to": [
+                "marinar/products"
+            ]
+        },
+        "laravel": {
+            "providers": [
+                "Marinar\\CategoriesMetable\\MarinarCategoriesMetableServiceProvider"
+            ],
+            "aliases": {
+                "MarinarCategoriesMetable": "Marinar\\CategoriesMetable\\MarinarCategoriesMetable"
+            }
+        }
+    }
+}
