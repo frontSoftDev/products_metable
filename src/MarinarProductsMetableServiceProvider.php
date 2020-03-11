@@ -5,6 +5,8 @@
 
     class MarinarProductsMetableServiceProvider extends ServiceProvider {
         public function boot() {
+            if(app()->runningInConsole() && realpath(\App\Package::getRemoveFlagFile()))
+                return;
             MarinarProductsMetable::preHandle();
 
             if(!\provider_url_check(config('marinar_products_metable.provider_route_prefixes')))
@@ -26,6 +28,8 @@
             $this->publishes([
                 __DIR__ . DIRECTORY_SEPARATOR . 'resources' . DIRECTORY_SEPARATOR . 'views' => resource_path('views/vendor/marinar_products_metable'),
             ], 'views');
+            if(app()->runningInConsole() && realpath(\App\Package::getRemoveFlagFile()))
+                return;
             \PackagesSeeder::$package_seeders[] = \Marinar\ProductsMetable\Database\Seeds\MarinarProductsMetableSeeder::class;
         }
     }
