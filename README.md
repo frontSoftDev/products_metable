@@ -3,6 +3,7 @@
 Addon for adding `marinar/metable` functionality to `marinar/products`.
 
 - [Installation](#installation)
+- [Hooking-to](#hooking-to)
 - [Publish](#publish)
 - [Remove](#remove)
 - [GIT Repositories](#git-repositories)
@@ -13,6 +14,13 @@ Addon for adding `marinar/metable` functionality to `marinar/products`.
 ```bash
 composer require marinar/products_metable
 ```
+
+## Hooking to
+1. Template hooks
+
+Template | Hook  | Use
+:---: | :---: | :---:
+product | product_last | Add `Metable` component
 
 ## Publish
 - All
