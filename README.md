@@ -9,14 +9,22 @@ Addon for adding `marinar/metable` functionality to `marinar/products`.
 - [GIT Repositories](#git-repositories)
 
 
-## Instalation
+## Installation
 1. Require the package
 ```bash
 composer require marinar/products_metable
 ```
 
 ## Hooking to
-1. Template hooks
+1. Pipeline hooks
+- `request` at `InfopageRequest` - for request pre work and pre scripts
+
+2. Properties
+`InfopageRequest`
+- `$addon_validations['rules']` = for extending array with validation rules
+- `$addon_validations['messages']` = for extending array with validation messages
+
+3. Template hooks
 
 Template | Hook  | Use
 :---: | :---: | :---:
@@ -41,7 +49,7 @@ php artisan vendor:publish --tag=translations --provider="Marinar\ProductsMetabl
 ```
 
 ## Remove
-Remove is automatic - see `conifg/package.php` for used commands
+Remove is automatic - see `config/package.php` for used commands
 ```bash
 composer remove marinar/products_metable
 ```
